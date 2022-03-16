@@ -1,11 +1,10 @@
 import './App.css';
+import SingUp from './components/SingUp/SingUp';
 
 function App() {
 	return (
-		<div className="App">
-			<header className="App-header">
-				<h1>Start</h1>
-			</header>
+		<div style={{ backgroundColor: '#283246' }}>
+			<SingUp />
 		</div>
 	);
 }
