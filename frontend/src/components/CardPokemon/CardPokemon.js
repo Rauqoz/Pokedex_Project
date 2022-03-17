@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import useBackgroundType from '../Hooks/BackgroundType';
+import useBackgroundType from '../Hooks/BackgroundTypeHook';
 import {
 	ContentS,
 	ContentTextS,
