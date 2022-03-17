@@ -6,7 +6,7 @@ const useFormHook = () => {
 		nick_f: '',
 		pass_f: '',
 		region_f: 'kanto',
-		gender_f: 'masculino',
+		gender_f: 'male',
 		age_f: '',
 		email_f: '',
 		trainerclass_f: 'beauty'
@@ -69,11 +69,11 @@ const useFormHook = () => {
 	const validateSingUp_ = () => {
 		const { name_f, nick_f, pass_f, age_f, email_f } = form_data;
 
-		if (name_f == '') return false;
-		if (nick_f == '') return false;
-		if (pass_f == '') return false;
-		if (age_f == '') return false;
-		if (email_f == '') return false;
+		if (name_f === '') return false;
+		if (nick_f === '') return false;
+		if (pass_f === '') return false;
+		if (age_f === '') return false;
+		if (email_f === '') return false;
 
 		return true;
 	};
@@ -81,8 +81,8 @@ const useFormHook = () => {
 	const validateLogin_ = () => {
 		const { nick_f, pass_f } = form_data;
 
-		if (nick_f == '') return false;
-		if (pass_f == '') return false;
+		if (nick_f === '') return false;
+		if (pass_f === '') return false;
 
 		return true;
 	};

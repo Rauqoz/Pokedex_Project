@@ -1,6 +1,6 @@
 import React from 'react';
 import useFormHook from '../Hooks/FormHook';
-import { ContainerS, FormButtonS, FormGroupS, FormS, FormTitleS } from '../Styles/LoginAndSingUp.styles';
+import { ContainerS, FormButtonS, FormGroupS, FormS, FormTitleS } from '../Styles/LoginAndSignUp.styles';
 
 const Login = () => {
 	const { form_data, setNick_, setPass_, validateLogin_, clean_ } = useFormHook();

@@ -1,6 +1,6 @@
 import React from 'react';
 import useFormHook from '../Hooks/FormHook';
-import { ContainerS, FormButtonS, FormGroupS, FormS, FormTitleS } from '../Styles/LoginAndSingUp.styles';
+import { ContainerS, FormButtonS, FormGroupS, FormS, FormTitleS } from '../Styles/LoginAndSignUp.styles';
 
 const SingUp = () => {
 	const {
@@ -31,7 +31,7 @@ const SingUp = () => {
 		<ContainerS>
 			<FormS>
 				<FormTitleS>
-					<label>Sing Up</label>
+					<label>Sign Up</label>
 				</FormTitleS>
 				<FormGroupS>
 					<label>Name:</label>
@@ -46,7 +46,7 @@ const SingUp = () => {
 					<input placeholder="Password" type="password" value={form_data.pass_f} onChange={setPass_} />
 				</FormGroupS>
 				<FormGroupS>
-					<label>Region:</label>
+					<label>Region Origin:</label>
 					<select value={form_data.region_f} onChange={setRegion_}>
 						<option value="kanto">Kanto</option>
 						<option value="johto">Johto</option>
@@ -61,8 +61,8 @@ const SingUp = () => {
 				<FormGroupS>
 					<label>Gender:</label>
 					<select value={form_data.gender_f} onChange={setGender_}>
-						<option value="masculino">Masculino</option>
-						<option value="femenino">Femenino</option>
+						<option value="male">Male</option>
+						<option value="female">Female</option>
 					</select>
 				</FormGroupS>
 				<FormGroupS>
@@ -76,12 +76,39 @@ const SingUp = () => {
 				<FormGroupS>
 					<label>Trainer Class:</label>
 					<select value={form_data.trainerclass_f} onChange={setTrainerClass_}>
-						<option value="class">Class</option>
+						<option value="beauty">Beauty</option>
+						<option value="biker">Biker</option>
+						<option value="bird keeper">Bird Keeper</option>
+						<option value="blackbelt">Blackbelt</option>
+						<option value="bug catcher">Bug Catcher</option>
+						<option value="burglar">Burglar</option>
+						<option value="channeler">Channeler</option>
+						<option value="cooltrainer">Cooltrainer</option>
+						<option value="cue ball">Cue Ball</option>
+						<option value="engineer">Engineer</option>
+						<option value="fisherman">Fisherman</option>
+						<option value="gambler">Gambler</option>
+						<option value="gentleman">Gentleman</option>
+						<option value="hiker">Hiker</option>
+						<option value="jr. trainer">Jr. Trainer</option>
+						<option value="juggler">Juggler</option>
+						<option value="lass">Lass</option>
+						<option value="pokemaniac">PokeManiac</option>
+						<option value="psychic">Psychic</option>
+						<option value="rival">Rival</option>
+						<option value="rocker">Rocker</option>
+						<option value="rocket">Rocket</option>
+						<option value="sailor">Sailor</option>
+						<option value="scientist">Scientist</option>
+						<option value="super nerd">Super Nerd</option>
+						<option value="swimmer">Swimmer</option>
+						<option value="tamer">Tamer</option>
+						<option value="youngste">Youngster</option>
 					</select>
 				</FormGroupS>
 				<FormTitleS>
 					<FormButtonS onClick={submit_}>I have Account !</FormButtonS>
-					<FormButtonS onClick={submit_}>Sing Up</FormButtonS>
+					<FormButtonS onClick={submit_}>Sign Up</FormButtonS>
 					<FormButtonS onClick={submit_}>Home</FormButtonS>
 				</FormTitleS>
 			</FormS>

@@ -19,15 +19,18 @@ const CardPokemon = ({ t1, t2 }) => {
 	}, []);
 
 	return (
-		<ContentS>
+		<ContentS onClick={() => console.log(t1, t2)}>
 			<ContetImageS>
 				<ImageT1S src={type_1} />
 				<ImageT2S src={type_2} />
-				<ImagePkS src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/92.png" />
+				<ImagePkS src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/92.png" />
 			</ContetImageS>
 			<ContentTextS>
 				<TitleS>feraligatr</TitleS>
-				<DescriptionS>feraligatr - feraligatr</DescriptionS>
+				<DescriptionS>
+					{' '}
+					{t1} - {t2}
+				</DescriptionS>
 			</ContentTextS>
 		</ContentS>
 	);
