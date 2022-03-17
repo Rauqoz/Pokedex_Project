@@ -1,9 +1,11 @@
 import './App.css';
+import Login from './components/Login/Login';
 import SingUp from './components/SingUp/SingUp';
 
 function App() {
 	return (
-		<div style={{ backgroundColor: '#283246' }}>
+		<div>
+			<Login />
 			<SingUp />
 		</div>
 	);
