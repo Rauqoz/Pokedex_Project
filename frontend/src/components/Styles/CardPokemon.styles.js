@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 import { Palette_Background, Palette_Four } from './PaletteColor.styles';
 
-export const ContentWrapS = styled.div`
+export const ContainerWrapS = styled.div`
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
 `;
 
-export const ContentS = styled.div`
+export const ContainerCardS = styled.div`
 	width: auto;
 	height: auto;
 	padding: 8px;
@@ -17,11 +17,11 @@ export const ContentS = styled.div`
 	}
 `;
 
-export const ContetImageS = styled.div`
+export const ContainerImageS = styled.div`
 	display: flex;
 	justify-content: center;
 
-	${ContentS}:hover & {
+	${ContainerCardS}:hover & {
 		height: 120px;
 		width: 250px;
 	}
@@ -34,7 +34,7 @@ export const ImageT1S = styled.img`
 	position: absolute;
 	border-radius: 20px 0 20px 0;
 
-	${ContentS}:hover & {
+	${ContainerCardS}:hover & {
 		height: 120px;
 		width: 250px;
 	}
@@ -46,7 +46,7 @@ export const ImageT2S = styled.img`
 	clip-path: inset(0 0 0 50%);
 	border-radius: 0 20px 0 20px;
 
-	${ContentS}:hover & {
+	${ContainerCardS}:hover & {
 		height: 120px;
 		width: 250px;
 	}
@@ -57,13 +57,13 @@ export const ImagePkS = styled.img`
 	height: 110px;
 	position: absolute;
 
-	${ContentS}:hover & {
+	${ContainerCardS}:hover & {
 		height: 200px;
 		width: 200px;
 	}
 `;
 
-export const ContentTextS = styled.div`
+export const ContainerTextS = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -72,7 +72,7 @@ export const ContentTextS = styled.div`
 	border-radius: 0 0 20px 20px;
 	color: ${Palette_Four};
 
-	${ContentS}:hover & {
+	${ContainerCardS}:hover & {
 		height: 120px;
 		width: 250px;
 	}

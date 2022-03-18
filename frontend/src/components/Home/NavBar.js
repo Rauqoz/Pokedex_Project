@@ -5,7 +5,7 @@ const NavBar = () => {
 	return (
 		<NavBarS>
 			<LiLeftS>
-				<ALinkS href="#">Home</ALinkS>
+				<ALinkS href="#">Rauqoz-Dex</ALinkS>
 			</LiLeftS>
 			<LiLeftS>
 				<ALinkS href="#">Add Pokemons</ALinkS>
