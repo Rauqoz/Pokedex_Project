@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import useBackgroundType from '../Hooks/BackgroundTypeHook';
 import {
 	ContainerImageS,
@@ -15,46 +15,48 @@ import {
 	ContainerTextStatsS
 } from '../Styles/DexPokemon.styles';
 
-const DexPokemon = ({ pimage, pname, php, patk, pdef, psatk, psdef, pspeed, pt1, pt2, pcode }) => {
+const DexPokemon = ({ pimage, pshiny, pname, php, patk, pdef, psatk, psdef, pspeed, pt1, pt2, phability, pcode }) => {
 	const { checkType_, type_1, type_2 } = useBackgroundType();
+	const [ src_pk, setSrc_pk ] = useState('');
 
 	useEffect(() => {
 		checkType_(pt1, pt2);
-	});
+		setSrc_pk(pimage);
+	}, []);
 
 	return (
 		<ContainerDexPokemonS>
 			<ContainerImageS>
 				<ImageT1S style={{ backgroundImage: `url(${type_1})` }} />
 				<ImageT2S style={{ backgroundImage: `url(${type_2})` }} />
-				<ImagePkS src={pimage} />
+				<ImagePkS src={src_pk} onMouseOver={() => setSrc_pk(pshiny)} onMouseOut={() => setSrc_pk(pimage)} />
 			</ContainerImageS>
-			<ContainerNamePokemonS>{pname}</ContainerNamePokemonS>
+			<ContainerNamePokemonS>{`${pname} - ${pcode}`}</ContainerNamePokemonS>
 			<ContainerStatsPokemonS>
-				<TitleStatsS>{`${pt1} - Base Stats - ${pt2}`}</TitleStatsS>
+				<TitleStatsS>{`Type: ${pt1} / ${pt2} || Hability: ${phability}`}</TitleStatsS>
 				<ContainerTextStatsS>
 					<ContainerTextBaseStatsS>
-						<TextBaseStatsS>Hp: </TextBaseStatsS>
+						<TextBaseStatsS>Base Hp: </TextBaseStatsS>
 						<TextBaseStatsS>{php}</TextBaseStatsS>
 					</ContainerTextBaseStatsS>
 					<ContainerTextBaseStatsS>
-						<TextBaseStatsS>Attack: </TextBaseStatsS>
+						<TextBaseStatsS>Base Attack: </TextBaseStatsS>
 						<TextBaseStatsS>{patk}</TextBaseStatsS>
 					</ContainerTextBaseStatsS>
 					<ContainerTextBaseStatsS>
-						<TextBaseStatsS>Defense: </TextBaseStatsS>
+						<TextBaseStatsS>Base Defense: </TextBaseStatsS>
 						<TextBaseStatsS>{pdef}</TextBaseStatsS>
 					</ContainerTextBaseStatsS>
 					<ContainerTextBaseStatsS>
-						<TextBaseStatsS>Special-Attack: </TextBaseStatsS>
+						<TextBaseStatsS>Base Special-Attack: </TextBaseStatsS>
 						<TextBaseStatsS>{psatk}</TextBaseStatsS>
 					</ContainerTextBaseStatsS>
 					<ContainerTextBaseStatsS>
-						<TextBaseStatsS>Special-Defense: </TextBaseStatsS>
+						<TextBaseStatsS>Base Special-Defense: </TextBaseStatsS>
 						<TextBaseStatsS>{psdef}</TextBaseStatsS>
 					</ContainerTextBaseStatsS>
 					<ContainerTextBaseStatsS>
-						<TextBaseStatsS>Speed: </TextBaseStatsS>
+						<TextBaseStatsS>Base Speed: </TextBaseStatsS>
 						<TextBaseStatsS>{pspeed}</TextBaseStatsS>
 					</ContainerTextBaseStatsS>
 					<ContainerTextBaseStatsS>

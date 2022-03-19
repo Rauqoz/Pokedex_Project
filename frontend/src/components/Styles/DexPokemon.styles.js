@@ -71,6 +71,13 @@ export const ImagePkS = styled.img`
 	width: auto;
 	height: 350px;
 	margin-top: -40px;
+	clip-path: inset(10% 0 10% 0);
+
+	:hover& {
+		transition: 0.4s;
+		height: 500px;
+		margin-top: -60px;
+	}
 `;
 
 export const ContainerTextBaseStatsS = styled.div`
@@ -96,6 +103,9 @@ export const ButtonSaveS = styled.button`
 
 	:hover& {
 		transition: 0.4s;
+		border-width: 1px;
+		border-style: solid;
+		border-color: ${Palette_One};
 		color: ${Palette_One};
 		background-color: ${Palette_Four};
 	}
