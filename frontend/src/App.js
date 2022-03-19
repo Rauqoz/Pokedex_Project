@@ -3,7 +3,6 @@ import CardPokemon from './components/CardPokemon/CardPokemon';
 import DexPokemon from './components/DexPokemon/DexPokemon';
 import NavBar from './components/Home/NavBar';
 import { ContainerWrapS } from './components/Styles/CardPokemon.styles';
-import { ContainerGeneralDexS } from './components/Styles/DexPokemon.styles';
 import { AppContainerS } from './components/Styles/PaletteColor.styles';
 
 function App() {
