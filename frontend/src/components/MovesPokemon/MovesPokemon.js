@@ -17,7 +17,6 @@ const MovesPokemon = ({ pmoves }) => {
 		{
 			label: 'Type',
 			field: 'type',
-			sort: 'disabled'
 		},
 		{
 			label: 'Power',
@@ -30,12 +29,10 @@ const MovesPokemon = ({ pmoves }) => {
 		{
 			label: 'Description',
 			field: 'description',
-			sort: 'asc'
 		},
 		{
 			label: 'Effect',
 			field: 'effect',
-			sort: 'asc'
 		}
 	];
 

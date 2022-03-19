@@ -11,7 +11,7 @@ export const ContainerS = styled.div`
 	${Palette_Background};
 `;
 
-export const FormS = styled.form`min-width: calc(25vw);`;
+export const FormS = styled.form`min-width: calc(40vw);`;
 
 export const FormTitleS = styled.div`
 	display: flex;
