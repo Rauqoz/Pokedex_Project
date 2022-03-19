@@ -10,7 +10,7 @@ export const ContainerDexPokemonS = styled.div`
 	display: flex;
 	flex-direction: column;
 	flex: 0.7;
-	height: 500px;
+	height: 550px;
 	margin: 10px;
 `;
 

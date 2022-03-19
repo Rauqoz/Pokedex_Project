@@ -23,12 +23,12 @@ export const ContainerImageS = styled.div`
 
 	${ContainerCardS}:hover & {
 		height: 120px;
-		width: 250px;
+		width: 251px;
 	}
 `;
 
 export const ImageT1S = styled.img`
-	width: 200px;
+	width: 201px;
 	height: 110px;
 	clip-path: inset(0 50% 0 0);
 	position: absolute;
@@ -36,19 +36,19 @@ export const ImageT1S = styled.img`
 
 	${ContainerCardS}:hover & {
 		height: 120px;
-		width: 250px;
+		width: 251px;
 	}
 `;
 
 export const ImageT2S = styled.img`
-	width: 200px;
+	width: 201px;
 	height: 110px;
 	clip-path: inset(0 0 0 50%);
 	border-radius: 0 20px 0 20px;
 
 	${ContainerCardS}:hover & {
 		height: 120px;
-		width: 250px;
+		width: 251px;
 	}
 `;
 
