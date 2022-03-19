@@ -17,12 +17,12 @@ import {
 
 const DexPokemon = ({ pimage, pshiny, pname, php, patk, pdef, psatk, psdef, pspeed, pt1, pt2, phability, pcode }) => {
 	const { checkType_, type_1, type_2 } = useBackgroundType();
-	const [ src_pk, setSrc_pk ] = useState('');
+	const [ src_pk, setSrc_pk ] = useState(pimage);
 
 	useEffect(() => {
 		checkType_(pt1, pt2);
-		setSrc_pk(pimage);
-	}, []);
+	});
+
 
 	return (
 		<ContainerDexPokemonS>
