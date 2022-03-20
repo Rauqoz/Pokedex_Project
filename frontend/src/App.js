@@ -1,6 +1,7 @@
 import './App.css';
 import CardPokemon from './components/CardPokemon/CardPokemon';
 import DexPokemon from './components/DexPokemon/DexPokemon';
+import DexGeneral from './components/Home/DexGeneral';
 import NavBar from './components/Home/NavBar';
 import Login from './components/Login/Login';
 import SingUp from './components/SignUp/SignUp';
@@ -246,40 +247,7 @@ function App() {
 	return (
 		<AppContainerS>
 			<NavBar />
-			<ContainerWrapS>
-				<CardPokemon
-					pimage={'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/92.png'}
-					pshiny={'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/92.png'}
-					pname={'Gastly'}
-					pt1={'ghost'}
-					pt2={'poison'}
-					pcode={92}
-				/>
-				<CardPokemon
-					pimage={'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/143.png'}
-					pshiny={'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/143.png'}
-					pname={'Snorlax'}
-					pt1={'normal'}
-					pt2={'normal'}
-					pcode={143}
-				/>
-				<CardPokemon
-					pimage={'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/92.png'}
-					pshiny={'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/92.png'}
-					pname={'Gastly'}
-					pt1={'ghost'}
-					pt2={'poison'}
-					pcode={92}
-				/>
-				<CardPokemon
-					pimage={'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/143.png'}
-					pshiny={'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/143.png'}
-					pname={'Snorlax'}
-					pt1={'normal'}
-					pt2={'normal'}
-					pcode={143}
-				/>
-			</ContainerWrapS>
+			<DexGeneral />
 			<DexPokemon
 				patk={20}
 				pdef={20}
