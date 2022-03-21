@@ -34,7 +34,6 @@ const CardPokemon = ({
 	return (
 		<ContainerCardS
 			onClick={() => {
-				window.localStorage.setItem('pcode', pcode);
 				navigate('/poke', {
 					state: {
 						pt1,
