@@ -60,7 +60,7 @@ const PagePokedex = () => {
 		}
 	};
 
-	const previos_page_ = () => {
+	const previous_page_ = () => {
 		setPoke_list([]);
 		if (poke_count <= 0) {
 			setPoke_count(8);
@@ -83,8 +83,8 @@ const PagePokedex = () => {
 	return (
 		<Fragment>
 			<ContainerButtonS>
-				<ButtonS disabled={poke_list.length === 0 ? true : false} onClick={previos_page_}>
-					Previos
+				<ButtonS disabled={poke_list.length === 0 ? true : false} onClick={previous_page_}>
+					Previous
 				</ButtonS>
 				<ButtonS disabled={poke_list.length === 0 ? true : false} onClick={next_page_}>
 					Next

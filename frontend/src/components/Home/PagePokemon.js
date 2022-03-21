@@ -43,7 +43,7 @@ const PagePokemon = () => {
 		<div>
 			<ContainerButtonS>
 				<ButtonS disabled={moves_pk.length === 0 ? true : false} onClick={() => navigate('/')}>
-					Previos
+					Previous
 				</ButtonS>
 			</ContainerButtonS>
 			{moves_pk.length === 0 ? (
