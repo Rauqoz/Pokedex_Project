@@ -10,7 +10,7 @@ export const ContainerWrapS = styled.div`
 export const ContainerCardS = styled.div`
 	width: auto;
 	height: auto;
-	padding: 8px;
+	padding: 6px;
 
 	:hover& {
 		transition: 2s;
@@ -20,46 +20,47 @@ export const ContainerCardS = styled.div`
 export const ContainerImageS = styled.div`
 	display: flex;
 	justify-content: center;
+	margin: 0;
 
 	${ContainerCardS}:hover & {
-		height: 120px;
-		width: 251px;
+		width: 250px;
+		height: auto;
 	}
 `;
 
 export const ImageT1S = styled.img`
-	width: 201px;
+	width: 200px;
 	height: 110px;
-	clip-path: inset(0 50% 0 0);
-	position: absolute;
+	clip-path: inset(0 49% 0 0);
 	border-radius: 20px 0 20px 0;
+	position: absolute;
 
 	${ContainerCardS}:hover & {
-		height: 120px;
-		width: 251px;
+		width: 250px;
+		height: auto;
 	}
 `;
 
 export const ImageT2S = styled.img`
-	width: 201px;
+	width: 200px;
 	height: 110px;
-	clip-path: inset(0 0 0 50%);
+	clip-path: inset(0 0 0 49%);
 	border-radius: 0 20px 0 20px;
 
 	${ContainerCardS}:hover & {
-		height: 120px;
-		width: 251px;
+		width: 250px;
+		height: auto;
 	}
 `;
 
 export const ImagePkS = styled.img`
 	width: 110px;
-	height: 110px;
+	height: auto;
 	position: absolute;
 
 	${ContainerCardS}:hover & {
-		height: 200px;
 		width: 200px;
+		height: auto;
 	}
 `;
 
@@ -71,10 +72,11 @@ export const ContainerTextS = styled.div`
 	${Palette_Background};
 	border-radius: 0 0 20px 20px;
 	color: ${Palette_Four};
+	margin: 0;
 
 	${ContainerCardS}:hover & {
-		height: 120px;
 		width: 250px;
+		height: 120px;
 	}
 `;
 

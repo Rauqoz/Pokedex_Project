@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react';
-import useBackgroundType from '../Hooks/BackgroundTypeHook';
+import React, { useState } from 'react';
 import MovesPokemon from '../MovesPokemon/MovesPokemon';
 import {
 	ContainerImageS,
@@ -17,13 +16,25 @@ import {
 	ContainerGeneralDexS
 } from '../Styles/DexPokemon.styles';
 
-const DexPokemon = ({ pimage, pshiny, pname, php, patk, pdef, psatk, psdef, pspeed, pt1, pt2, phability, pcode,pmoves }) => {
-	const { checkType_, type_1, type_2 } = useBackgroundType();
+const DexPokemon = ({
+	pimage,
+	pshiny,
+	pname,
+	php,
+	patk,
+	pdef,
+	psatk,
+	psdef,
+	pspeed,
+	pt1,
+	pt2,
+	pability,
+	pcode,
+	pmoves,
+	type_1,
+	type_2
+}) => {
 	const [ src_pk, setSrc_pk ] = useState(pimage);
-
-	useEffect(() => {
-		checkType_(pt1, pt2);
-	});
 
 	return (
 		<div>
@@ -40,7 +51,7 @@ const DexPokemon = ({ pimage, pshiny, pname, php, patk, pdef, psatk, psdef, pspe
 					</ContainerImageS>
 					<ContainerNamePokemonS>{`${pname} - ${pcode}`}</ContainerNamePokemonS>
 					<ContainerStatsPokemonS>
-						<TitleStatsS>{`Type: ${pt1} / ${pt2} || Hability: ${phability}`}</TitleStatsS>
+						<TitleStatsS>{`Type: ${pt1} / ${pt2} || Ability: ${pability}`}</TitleStatsS>
 						<ContainerTextStatsS>
 							<ContainerTextBaseStatsS>
 								<TextBaseStatsS>Base Hp: </TextBaseStatsS>

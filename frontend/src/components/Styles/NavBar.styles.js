@@ -16,7 +16,8 @@ export const NavBarS = styled.ul`
 export const LiLeftS = styled.li`float: left;`;
 export const LiRightS = styled.li`float: right;`;
 
-export const ALinkS = styled.a`
+export const ALinkS = styled.div`
+	cursor: pointer;
 	display: block;
 	color: ${Palette_Four};
 	text-align: center;

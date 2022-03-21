@@ -12,11 +12,12 @@ const MovesPokemon = ({ pmoves }) => {
 			attributes: {
 				'aria-controls': 'DataTable',
 				'aria-label': 'Name'
-			}
+			},
+			sort: 'asc'
 		},
 		{
 			label: 'Type',
-			field: 'type',
+			field: 'type'
 		},
 		{
 			label: 'Power',
@@ -27,18 +28,13 @@ const MovesPokemon = ({ pmoves }) => {
 			field: 'acc'
 		},
 		{
-			label: 'Description',
-			field: 'description',
-		},
-		{
 			label: 'Effect',
-			field: 'effect',
+			field: 'effect'
 		}
 	];
 
 	return (
 		<MDBDataTableV5
-			hover
 			entriesOptions={[ 5, 10, 50 ]}
 			entries={5}
 			data={{ columns: columns, rows: pmoves }}
