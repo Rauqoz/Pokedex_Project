@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router';
 import MovesPokemon from '../MovesPokemon/MovesPokemon';
 import {
 	ContainerImageS,
@@ -35,15 +36,17 @@ const DexPokemon = ({
 	type_2
 }) => {
 	const [ src_pk, setSrc_pk ] = useState(pimage);
+	const navigate = useNavigate();
 
 	const save_ = () => {
 		let resp;
 		if (window.localStorage.getItem('user_pk') === '') {
 			alert('First Login n.n');
+			navigate('/login');
 		} else {
 			resp = window.prompt('NickName for your Pokemon');
 			if (resp.length !== 0) {
-				alert('nice');
+				alert('Adding Pokemon');
 			}
 		}
 	};

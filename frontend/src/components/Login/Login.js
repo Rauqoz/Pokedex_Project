@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
 import useFormHook from '../Hooks/FormHook';
+import { post_login_ } from '../Middlewares/Fetch';
 import { ContainerS, FormButtonS, FormGroupS, FormS, FormTitleS } from '../Styles/LoginAndSignUp.styles';
 
 const Login = () => {
@@ -8,7 +9,7 @@ const Login = () => {
 
 	const navigate = useNavigate();
 
-	const submit_ = (e, action) => {
+	const submit_ = async (e, action) => {
 		e.preventDefault();
 
 		switch (action) {
@@ -17,7 +18,17 @@ const Login = () => {
 				break;
 			case 'login':
 				if (validateLogin_()) {
-					console.log(form_data);
+					const login = await post_login_(form_data).then((data) => {
+						if (!data.flag) {
+							alert('Incorrect Data');
+						} else {
+							window.localStorage.setItem('user_pk', JSON.stringify(data.data));
+							alert(`Login, Welcome ${data.data.db_name}!`);
+						}
+						return data.flag;
+					});
+
+					if (login) navigate('/mypokes');
 				} else {
 					console.log('%cForm Incompleto', 'color:violet');
 				}

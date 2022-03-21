@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
 import useFormHook from '../Hooks/FormHook';
+import { post_sign_up_ } from '../Middlewares/Fetch';
 import { ContainerS, FormButtonS, FormGroupS, FormS, FormTitleS } from '../Styles/LoginAndSignUp.styles';
 
 const SingUp = () => {
@@ -19,7 +20,7 @@ const SingUp = () => {
 		validateSingUp_
 	} = useFormHook();
 
-	const submit_ = (e, action) => {
+	const submit_ = async (e, action) => {
 		e.preventDefault();
 
 		switch (action) {
@@ -28,8 +29,18 @@ const SingUp = () => {
 				break;
 			case 'sign':
 				if (validateSingUp_()) {
-					console.log(form_data);
+					const sign_up = await post_sign_up_(form_data).then((data) => {
+						if (!data.flag) {
+							alert('User Exists,Try with Other');
+						} else {
+							alert('Sign Up Complete');
+						}
+						return data.flag;
+					});
+
+					if (sign_up) navigate('/login');
 				} else {
+					alert('Incomplete Form');
 					console.log('%cForm Incompleto', 'color:violet');
 				}
 				clean_();
@@ -93,34 +104,8 @@ const SingUp = () => {
 				<FormGroupS>
 					<label>Trainer Class:</label>
 					<select value={form_data.trainerclass_f} onChange={setTrainerClass_}>
-						<option value="beauty">Beauty</option>
-						<option value="biker">Biker</option>
-						<option value="bird keeper">Bird Keeper</option>
-						<option value="blackbelt">Blackbelt</option>
-						<option value="bug catcher">Bug Catcher</option>
-						<option value="burglar">Burglar</option>
-						<option value="channeler">Channeler</option>
-						<option value="cooltrainer">Cooltrainer</option>
-						<option value="cue ball">Cue Ball</option>
-						<option value="engineer">Engineer</option>
-						<option value="fisherman">Fisherman</option>
-						<option value="gambler">Gambler</option>
-						<option value="gentleman">Gentleman</option>
-						<option value="hiker">Hiker</option>
-						<option value="jr. trainer">Jr. Trainer</option>
-						<option value="juggler">Juggler</option>
-						<option value="lass">Lass</option>
-						<option value="pokemaniac">PokeManiac</option>
-						<option value="psychic">Psychic</option>
-						<option value="rival">Rival</option>
-						<option value="rocker">Rocker</option>
-						<option value="rocket">Rocket</option>
-						<option value="sailor">Sailor</option>
-						<option value="scientist">Scientist</option>
-						<option value="super nerd">Super Nerd</option>
-						<option value="swimmer">Swimmer</option>
-						<option value="tamer">Tamer</option>
-						<option value="youngste">Youngster</option>
+						<option value="battle">Battle</option>
+						<option value="show">Show</option>
 					</select>
 				</FormGroupS>
 				<FormTitleS>

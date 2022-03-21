@@ -7,16 +7,18 @@ const NavBar = () => {
 
 	const [ current_user, setCurrent_user ] = useState('');
 
-	useEffect(
-		() => {
-			if (window.localStorage.getItem('user_pk') === '') {
-				setCurrent_user('');
-			} else {
-				setCurrent_user(window.localStorage.getItem('user_pk'));
-			}
-		},
-		[ window.localStorage.getItem('user_pk') ]
-	);
+	const log_out_ = () => {
+		window.localStorage.setItem('user_pk', '');
+		navigate('/login');
+	};
+
+	useEffect(() => {
+		if (window.localStorage.getItem('user_pk') === '') {
+			setCurrent_user('');
+		} else {
+			setCurrent_user(JSON.parse(window.localStorage.getItem('user_pk')));
+		}
+	}, []);
 
 	return (
 		<NavBarS>
@@ -26,13 +28,10 @@ const NavBar = () => {
 			{current_user.length !== 0 ? (
 				<div>
 					<LiLeftS>
-						<ALinkS>Add Pokemons</ALinkS>
-					</LiLeftS>
-					<LiLeftS>
-						<ALinkS>My Pokemons</ALinkS>
+						<ALinkS onClick={() => navigate('/mypokes')}>My Pokemons</ALinkS>
 					</LiLeftS>
 					<LiRightS>
-						<ALinkS>{current_user} Log Out</ALinkS>
+						<ALinkS onClick={log_out_}>{current_user.db_name} Log Out</ALinkS>
 					</LiRightS>
 				</div>
 			) : (

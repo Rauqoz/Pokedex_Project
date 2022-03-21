@@ -1,91 +1,121 @@
 const express = require('express');
 const app = express();
-const axios = require('axios');
 const dotenv = require('dotenv').config();
 const mongoose = require('mongoose');
 const cors = require('cors');
 const port = process.env.PORT || 4500;
-const base_url = '';
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
 
-const get_general_ = async (url, func_data) => {
-	var config = {
-		method: 'get',
-		url: url,
-		headers: {}
-	};
+mongoose.connect(process.env.key_connection).then((db) => console.log('Connected to Database'));
 
-	return axios(config).then(func_data);
-};
+const schema_users = new mongoose.Schema(
+	{
+		db_name: { type: String, required: true },
+		db_nick: { type: String, required: true },
+		db_pass: { type: String, required: true },
+		db_region: { type: String, required: true },
+		db_gender: { type: String, required: true },
+		db_age: { type: Number, required: true },
+		db_email: { type: String, required: true },
+		db_trainerclass: { type: String, required: true },
+		db_pokemons: [ { pk: Number, nick: String } ]
+	},
+	{
+		timestamps: true,
+		timeseries: true
+	}
+);
+
+const model_users = mongoose.model('pd_users', schema_users);
 
 app.get('/', (req, res) => {
 	res.send(true);
 });
 
-// app.post('/pokemons', async (req, res) => {
-// 	let pokes_pre = [];
+app.post('/signup', async (req, res) => {
+	const { name_f, nick_f, pass_f, region_f, gender_f, age_f, email_f, trainerclass_f } = req.body;
 
-// 	for (let i = req.body.rstart; i <= req.body.rend; i++) {
-// 		const tempo = await get_general_(`${base_url}/pokemon/${i}`, ({ data }) => {
-// 			let types_pre = [];
+	let current = {};
 
-// 			types_pre = data.types.map(({ type }) => {
-// 				return type.name;
-// 			});
+	const check_signup = await model_users.findOne({ db_nick: nick_f });
 
-// 			return {
-// 				pimage: data.sprites.front_default,
-// 				pshiny: data.sprites.front_shiny,
-// 				pname: data.name,
-// 				pt1: types_pre[0],
-// 				pt2: types_pre[1] ? types_pre[1] : types_pre[0],
-// 				pcode: data.id,
-// 				pability: data.abilities[0].ability.name,
-// 				patk: data.stats[1].base_stat,
-// 				pdef: data.stats[2].base_stat,
-// 				php: data.stats[0].base_stat,
-// 				psatk: data.stats[3].base_stat,
-// 				psdef: data.stats[4].base_stat,
-// 				pspeed: data.stats[5].base_stat
-// 			};
-// 		});
-// 		pokes_pre.push(tempo);
-// 	}
+	if (check_signup === null) {
+		const tempo = new model_users({
+			db_name: name_f,
+			db_nick: nick_f,
+			db_pass: pass_f,
+			db_region: region_f,
+			db_gender: gender_f,
+			db_age: age_f,
+			db_email: email_f,
+			db_trainerclass: trainerclass_f,
+			db_pokemons: []
+		});
+		await tempo.save();
+		current.flag = true;
+	} else {
+		current.flag = false;
+	}
 
-// 	res.send(pokes_pre);
-// });
+	res.send({ flag: current.flag });
+});
 
-// app.post('/pokemon', async (req, res) => {
-// 	const moves_pre = await get_general_(`${base_url}/pokemon/${req.body.id}`, ({ data }) => {
-// 		return data.moves.map((e) => {
-// 			const { name, url } = e.move;
-// 			return { name, url };
-// 		});
-// 	});
+app.post('/login', async (req, res) => {
+	const { nick_f, pass_f } = req.body;
 
-// 	let move_post = [];
+	let current = {};
 
-// 	for (let i = 0; i < moves_pre.length; i++) {
-// 		const tempo = await get_general_(`${moves_pre[i].url}`, (data) => {
-// 			const { accuracy, effect_entries, name, power, type } = data.data;
+	const check_login = await model_users.findOne({
+		db_nick: nick_f,
+		db_pass: pass_f
+	});
 
-// 			return {
-// 				acc: accuracy,
-// 				effect: effect_entries.length !== 0 ? effect_entries[0].effect : 'none',
-// 				name,
-// 				power: power || 'no',
-// 				type: type.name
-// 			};
-// 		});
+	if (check_login === null) {
+		current.flag = false;
+	} else {
+		current.flag = true;
+		check_login.db_pass = '';
+	}
 
-// 		move_post.push(tempo);
-// 	}
+	res.send(current.flag === false ? { flag: current.flag } : { flag: current.flag, data: check_login });
+});
 
-// 	res.send(move_post);
-// });
+app.post('/addpk', async (req, res) => {
+	const { _id, id_pk, mote_pk } = req.body;
+
+	let current = {};
+
+	const check_pks = await model_users.findOne({ _id });
+
+	if (check_pks === null) {
+		current.flag = false;
+	} else {
+		const arr_new = [ ...check_pks.db_pokemons, { pk: id_pk, nick: mote_pk } ];
+		await model_users.findOneAndUpdate({ _id }, { db_pokemons: arr_new });
+		current.flag = true;
+	}
+
+	res.send({ flag: current.flag });
+});
+
+app.post('/userpk', async (req, res) => {
+	const { _id } = req.body;
+
+	let current = {};
+
+	const check_pks = await model_users.findOne({ _id });
+
+	if (check_pks === null) {
+		current.flag = false;
+	} else {
+		current.flag = true;
+	}
+
+	res.send(current.flag === false ? { flag: current.flag } : { flag: current.flag, pokemons: check_pks.db_pokemons });
+});
 
 const server = app.listen(port, () => {
 	console.log(`server on port ${port}`);

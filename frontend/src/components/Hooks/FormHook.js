@@ -9,7 +9,7 @@ const useFormHook = () => {
 		gender_f: 'male',
 		age_f: '',
 		email_f: '',
-		trainerclass_f: 'beauty'
+		trainerclass_f: 'battle'
 	};
 
 	const [ form_data, setForm_data_ ] = useState({ ..._initial_data });
@@ -26,7 +26,7 @@ const useFormHook = () => {
 
 	const setNick_ = (e) => {
 		setForm_data_((pre) => {
-			return { ...pre, nick_f: e.target.value };
+			return { ...pre, nick_f: e.target.value.toLowerCase() };
 		});
 	};
 
