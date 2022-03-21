@@ -10,13 +10,18 @@ const PageMyPokes = () => {
 	const { checkType_ } = useBackgroundType();
 	const controller = new AbortController();
 
-	useEffect(() => {
-		get_user_pokemons_(JSON.parse(window.localStorage.getItem('user_pk'))._id).then((data) => setPoke_list(data));
+	useEffect(
+		() => {
+			get_user_pokemons_(JSON.parse(window.localStorage.getItem('user_pk'))._id).then((data) =>
+				setPoke_list(data)
+			);
 
-		return () => {
-			controller.abort();
-		};
-	}, []);
+			return () => {
+				controller.abort();
+			};
+		},
+		[ window.localStorage.getItem('user_pk') ]
+	);
 
 	return (
 		<Fragment>

@@ -10,7 +10,8 @@ export const get_dex_pokemons_ = async (range) => {
 	var requestOptions = {
 		method: 'GET',
 		headers: myHeaders,
-		redirect: 'follow'
+		redirect: 'follow',
+		mode: 'cors'
 	};
 
 	for (let i = range.rstart; i <= range.rend; i++) {
@@ -49,7 +50,8 @@ export const get_dex_pokemon_ = async (id) => {
 	var requestOptions = {
 		method: 'GET',
 		headers: myHeaders,
-		redirect: 'follow'
+		redirect: 'follow',
+		mode: 'cors'
 	};
 
 	const moves_pre = await fetch(`${base_api}/pokemon/${id}/`, requestOptions)
@@ -91,7 +93,8 @@ export const post_sign_up_ = async (form_data) => {
 		method: 'POST',
 		headers: myHeaders,
 		body: raw,
-		redirect: 'follow'
+		redirect: 'follow',
+		mode: 'cors'
 	};
 
 	return await fetch(`${base_local}/signup`, requestOptions).then((response) => response.json());
@@ -104,10 +107,29 @@ export const post_login_ = async (form_data) => {
 		method: 'POST',
 		headers: myHeaders,
 		body: raw,
-		redirect: 'follow'
+		redirect: 'follow',
+		mode: 'cors'
 	};
 
 	return await fetch(`${base_local}/login`, requestOptions).then((response) => response.json());
+};
+
+export const post_user_pokemon_ = async (id, idpk, motepk) => {
+	var raw = JSON.stringify({
+		_id: id,
+		id_pk: idpk,
+		mote_pk: motepk
+	});
+
+	var requestOptions = {
+		method: 'POST',
+		headers: myHeaders,
+		body: raw,
+		redirect: 'follow',
+		mode: 'cors'
+	};
+
+	return await fetch(`${base_local}/addpk`, requestOptions).then((response) => response.json());
 };
 
 export const get_user_pokemons_ = async (id) => {
@@ -119,7 +141,8 @@ export const get_user_pokemons_ = async (id) => {
 		method: 'POST',
 		headers: myHeaders,
 		body: raw,
-		redirect: 'follow'
+		redirect: 'follow',
+		mode: 'cors'
 	};
 
 	const { pokemons } = await fetch(`${base_local}/userpk`, requestOptions).then((response) => response.json());
@@ -129,7 +152,8 @@ export const get_user_pokemons_ = async (id) => {
 	var requestOptions2 = {
 		method: 'GET',
 		headers: myHeaders,
-		redirect: 'follow'
+		redirect: 'follow',
+		mode: 'cors'
 	};
 
 	for (let i = 0; i < pokemons.length; i++) {

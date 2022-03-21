@@ -36,7 +36,7 @@ const PagePokemon = () => {
 				controller.abort();
 			};
 		},
-		[ state, pcode ]
+		[ pcode ]
 	);
 
 	return (

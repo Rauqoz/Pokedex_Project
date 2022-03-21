@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
+import { post_user_pokemon_ } from '../Middlewares/Fetch';
 import MovesPokemon from '../MovesPokemon/MovesPokemon';
 import {
 	ContainerImageS,
@@ -38,15 +39,18 @@ const DexPokemon = ({
 	const [ src_pk, setSrc_pk ] = useState(pimage);
 	const navigate = useNavigate();
 
-	const save_ = () => {
-		let resp;
+	const save_ = async () => {
+		let motepk;
 		if (window.localStorage.getItem('user_pk') === '') {
 			alert('First Login n.n');
 			navigate('/login');
 		} else {
-			resp = window.prompt('NickName for your Pokemon');
-			if (resp.length !== 0) {
+			motepk = window.prompt('NickName for your Pokemon');
+			if (motepk.length !== 0) {
+				let user_pk = JSON.parse(window.localStorage.getItem('user_pk'));
 				alert('Adding Pokemon');
+				await post_user_pokemon_(user_pk._id, pcode, motepk);
+				navigate('/mypokes');
 			}
 		}
 	};

@@ -7,19 +7,21 @@ import { PageRoam } from '../Home/PageRoam';
 import Login from '../Login/Login';
 import SingUp from '../SignUp/SignUp';
 import PageMyPokes from '../Home/PageMyPokes';
+import Error from '../Error/Error';
 
 const RoutesMain = () => {
 	return (
 		<AppContainerS>
 			<BrowserRouter>
 				<Routes>
+					<Route path="/login" element={<Login />} />
+					<Route path="/signup" element={<SingUp />} />
 					<Route path="/" element={<PageRoam />}>
 						<Route path="/" element={<PagePokedex />} />
 						<Route path="poke" element={<PagePokemon />} />
 						<Route path="mypokes" element={<PageMyPokes />} />
 					</Route>
-					<Route path="/login" element={<Login />} />
-					<Route path="/signup" element={<SingUp />} />
+					<Route path="*" element={<Error />} />
 				</Routes>
 			</BrowserRouter>
 		</AppContainerS>
