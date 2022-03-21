@@ -49,6 +49,7 @@ const PagePokedex = () => {
 	const [ poke_count, setPoke_count ] = useState(0);
 	const [ poke_list, setPoke_list ] = useState([]);
 	const { checkType_ } = useBackgroundType();
+	const controller = new AbortController();
 
 	const next_page_ = () => {
 		setPoke_list([]);
@@ -71,6 +72,10 @@ const PagePokedex = () => {
 	useEffect(
 		() => {
 			get_dex_pokemons_(poke_ranges[poke_count]).then((data) => setPoke_list(data));
+
+			return () => {
+				controller.abort();
+			};
 		},
 		[ poke_count ]
 	);

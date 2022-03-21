@@ -36,6 +36,18 @@ const DexPokemon = ({
 }) => {
 	const [ src_pk, setSrc_pk ] = useState(pimage);
 
+	const save_ = () => {
+		let resp;
+		if (window.localStorage.getItem('user_pk') === '') {
+			alert('First Login n.n');
+		} else {
+			resp = window.prompt('NickName for your Pokemon');
+			if (resp.length !== 0) {
+				alert('nice');
+			}
+		}
+	};
+
 	return (
 		<div>
 			<ContainerGeneralDexS>
@@ -78,7 +90,7 @@ const DexPokemon = ({
 								<TextBaseStatsS>{pspeed}</TextBaseStatsS>
 							</ContainerTextBaseStatsS>
 							<ContainerTextBaseStatsS>
-								<ButtonSaveS>save</ButtonSaveS>
+								<ButtonSaveS onClick={save_}>save</ButtonSaveS>
 							</ContainerTextBaseStatsS>
 						</ContainerTextStatsS>
 					</ContainerStatsPokemonS>

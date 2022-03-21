@@ -7,6 +7,7 @@ import Loading from '../Loading/Loading';
 
 const PagePokemon = () => {
 	const [ moves_pk, setMoves_pk ] = useState([]);
+	const controller = new AbortController();
 	const navigate = useNavigate();
 	const { state } = useLocation();
 	const {
@@ -30,8 +31,12 @@ const PagePokemon = () => {
 	useEffect(
 		() => {
 			get_dex_pokemon_(pcode).then((data) => setMoves_pk(data));
+
+			return () => {
+				controller.abort();
+			};
 		},
-		[ pcode ]
+		[ state, pcode ]
 	);
 
 	return (

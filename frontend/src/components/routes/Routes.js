@@ -4,6 +4,8 @@ import { AppContainerS } from '../Styles/PaletteColor.styles';
 import PagePokedex from '../Home/PagePokedex';
 import PagePokemon from '../Home/PagePokemon';
 import { PageRoam } from '../Home/PageRoam';
+import Login from '../Login/Login';
+import SingUp from '../SignUp/SignUp';
 
 const RoutesMain = () => {
 	return (
@@ -14,6 +16,8 @@ const RoutesMain = () => {
 						<Route path="/" element={<PagePokedex />} />
 						<Route path="poke" element={<PagePokemon />} />
 					</Route>
+					<Route path="/login" element={<Login />} />
+					<Route path="/signup" element={<SingUp />} />
 				</Routes>
 			</BrowserRouter>
 		</AppContainerS>

@@ -1,8 +1,10 @@
 import React from 'react';
+import { useNavigate } from 'react-router';
 import useFormHook from '../Hooks/FormHook';
 import { ContainerS, FormButtonS, FormGroupS, FormS, FormTitleS } from '../Styles/LoginAndSignUp.styles';
 
 const SingUp = () => {
+	const navigate = useNavigate();
 	const {
 		form_data,
 		clean_,
@@ -17,14 +19,29 @@ const SingUp = () => {
 		validateSingUp_
 	} = useFormHook();
 
-	const submit_ = (e) => {
+	const submit_ = (e, action) => {
 		e.preventDefault();
-		if (validateSingUp_()) {
-			console.log(form_data);
-		} else {
-			console.log('%cForm Incompleto', 'color:violet');
+
+		switch (action) {
+			case 'login':
+				navigate('/login');
+				break;
+			case 'sign':
+				if (validateSingUp_()) {
+					console.log(form_data);
+				} else {
+					console.log('%cForm Incompleto', 'color:violet');
+				}
+				clean_();
+
+				break;
+			case 'home':
+				navigate('/');
+				break;
+
+			default:
+				break;
 		}
-		clean_();
 	};
 
 	return (
@@ -107,9 +124,9 @@ const SingUp = () => {
 					</select>
 				</FormGroupS>
 				<FormTitleS>
-					<FormButtonS onClick={submit_}>I have Account !</FormButtonS>
-					<FormButtonS onClick={submit_}>Sign Up</FormButtonS>
-					<FormButtonS onClick={submit_}>Home</FormButtonS>
+					<FormButtonS onClick={(e) => submit_(e, 'login')}>I have Account !</FormButtonS>
+					<FormButtonS onClick={(e) => submit_(e, 'sign')}>Sign Up</FormButtonS>
+					<FormButtonS onClick={(e) => submit_(e, 'home')}>Home</FormButtonS>
 				</FormTitleS>
 			</FormS>
 		</ContainerS>
