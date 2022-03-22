@@ -30,6 +30,9 @@ const NavBar = () => {
 					<LiLeftS>
 						<ALinkS onClick={() => navigate('/mypokes')}>My Pokemons</ALinkS>
 					</LiLeftS>
+					<LiLeftS>
+						<ALinkS onClick={() => navigate('/myprofile')}>My Profile</ALinkS>
+					</LiLeftS>
 					<LiRightS>
 						<ALinkS onClick={log_out_}>{current_user.db_name} Log Out</ALinkS>
 					</LiRightS>

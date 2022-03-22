@@ -8,6 +8,7 @@ import Login from '../Login/Login';
 import SingUp from '../SignUp/SignUp';
 import PageMyPokes from '../Home/PageMyPokes';
 import Error from '../Error/Error';
+import PageProfile from '../Home/PageProfile';
 
 const RoutesMain = () => {
 	return (
@@ -20,6 +21,7 @@ const RoutesMain = () => {
 						<Route path="/" element={<PagePokedex />} />
 						<Route path="poke" element={<PagePokemon />} />
 						<Route path="mypokes" element={<PageMyPokes />} />
+						<Route path="myprofile" element={<PageProfile />} />
 					</Route>
 					<Route path="*" element={<Error />} />
 				</Routes>

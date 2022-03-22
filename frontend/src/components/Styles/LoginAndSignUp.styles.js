@@ -45,3 +45,13 @@ export const FormButtonS = styled.button`
 		border-color: ${Palette_One};
 	}
 `;
+
+export const ContainerProfileS = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-size: calc(10px + 2vmin);
+	${Palette_Background};
+	min-height: 70vh;
+`;
