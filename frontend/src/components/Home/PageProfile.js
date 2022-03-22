@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ContainerProfileS, FormGroupS, FormS, FormTitleS } from '../Styles/LoginAndSignUp.styles';
 
 const PageProfile = () => {
-	const [ current_user ] = useState(JSON.parse(window.localStorage.getItem('user_pk')));
+	const [ current_user ] = useState(JSON.parse(window.sessionStorage.getItem('user_pk')));
 
 	return (
 		<ContainerProfileS>

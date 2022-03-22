@@ -1,8 +1,13 @@
+import { useEffect } from 'react';
 import './App.css';
 import RoutesMain from './components/routes/Routes.js';
 
 function App() {
-	window.localStorage.setItem('user_pk', '');
+	useEffect(() => {
+		if (window.sessionStorage.getItem('user_pk') === null) {
+			window.sessionStorage.setItem('user_pk', '');
+		}
+	});
 	return <RoutesMain />;
 }
 

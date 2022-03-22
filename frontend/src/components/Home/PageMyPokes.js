@@ -15,7 +15,7 @@ const PageMyPokes = () => {
 
 	useEffect(
 		() => {
-			get_user_pokemons_(JSON.parse(window.localStorage.getItem('user_pk'))._id).then((data) =>
+			get_user_pokemons_(JSON.parse(window.sessionStorage.getItem('user_pk'))._id).then((data) =>
 				setPoke_list(data)
 			);
 
@@ -23,7 +23,7 @@ const PageMyPokes = () => {
 				controller.abort();
 			};
 		},
-		[ window.localStorage.getItem('user_pk') ]
+		[ window.sessionStorage.getItem('user_pk') ]
 	);
 
 	return (

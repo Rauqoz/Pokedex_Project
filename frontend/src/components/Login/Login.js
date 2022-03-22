@@ -22,7 +22,7 @@ const Login = () => {
 						if (!data.flag) {
 							alert('Incorrect Data');
 						} else {
-							window.localStorage.setItem('user_pk', JSON.stringify(data.data));
+							window.sessionStorage.setItem('user_pk', JSON.stringify(data.data));
 							alert(`Login, Welcome ${data.data.db_name}!`);
 						}
 						return data.flag;

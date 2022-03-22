@@ -8,15 +8,15 @@ const NavBar = () => {
 	const [ current_user, setCurrent_user ] = useState('');
 
 	const log_out_ = () => {
-		window.localStorage.setItem('user_pk', '');
+		window.sessionStorage.setItem('user_pk', '');
 		navigate('/login');
 	};
 
 	useEffect(() => {
-		if (window.localStorage.getItem('user_pk') === '') {
+		if (window.sessionStorage.getItem('user_pk') === '') {
 			setCurrent_user('');
 		} else {
-			setCurrent_user(JSON.parse(window.localStorage.getItem('user_pk')));
+			setCurrent_user(JSON.parse(window.sessionStorage.getItem('user_pk')));
 		}
 	}, []);
 

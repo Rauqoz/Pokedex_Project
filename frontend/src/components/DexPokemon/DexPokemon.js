@@ -41,13 +41,13 @@ const DexPokemon = ({
 
 	const save_ = async () => {
 		let motepk;
-		if (window.localStorage.getItem('user_pk') === '') {
+		if (window.sessionStorage.getItem('user_pk') === '') {
 			alert('First Login n.n');
 			navigate('/login');
 		} else {
 			motepk = window.prompt('NickName for your Pokemon');
 			if (motepk.length !== 0) {
-				let user_pk = JSON.parse(window.localStorage.getItem('user_pk'));
+				let user_pk = JSON.parse(window.sessionStorage.getItem('user_pk'));
 				alert('Adding Pokemon');
 				await post_user_pokemon_(user_pk._id, pcode, motepk);
 				navigate('/mypokes');
