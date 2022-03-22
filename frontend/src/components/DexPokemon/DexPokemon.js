@@ -41,7 +41,7 @@ const DexPokemon = ({
 
 	const save_ = async () => {
 		let motepk;
-		if (window.sessionStorage.getItem('user_pk') === '') {
+		if (window.sessionStorage.getItem('user_pk') === null || window.sessionStorage.getItem('user_pk') === '') {
 			alert('First Login n.n');
 			navigate('/login');
 		} else {
