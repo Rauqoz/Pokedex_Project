@@ -35,3 +35,10 @@ export const ButtonS = styled.button`
 		border-color: ${Palette_One};
 	}
 `;
+
+export const ContainerAddPkS = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+`;

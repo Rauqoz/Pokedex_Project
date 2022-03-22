@@ -29,14 +29,14 @@ const SingUp = () => {
 				break;
 			case 'sign':
 				if (validateSingUp_()) {
-					const sign_up = await post_sign_up_(form_data).then((data) => {
-						if (!data.flag) {
-							alert('User Exists,Try with Other');
-						} else {
-							alert('Sign Up Complete');
-						}
+					const sign_up = await post_sign_up_(form_data).then(({ data }) => {
 						return data.flag;
 					});
+					if (sign_up) {
+						alert('Sign Up Complete');
+					} else {
+						alert('User Exists,Try with Other');
+					}
 
 					if (sign_up) navigate('/login');
 				} else {

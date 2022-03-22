@@ -2,8 +2,8 @@ import axios from 'axios';
 const myHeaders = new Headers();
 myHeaders.append('Content-Type', 'application/json');
 
-// const base_local = `http://localhost:4500`;
-const base_local = 'https://pokedex-project-drab.vercel.app';
+const base_local = `http://localhost:4500`;
+// const base_local = 'https://pokedex-project-drab.vercel.app';
 const base_api = 'https://pokeapi.co/api/v2';
 
 export const get_dex_pokemons_ = async (range) => {
@@ -158,8 +158,7 @@ export const get_user_pokemons_ = async (id) => {
 					pspeed: data.stats[5].base_stat
 				};
 			});
-			console.log(all_pokes);
-			return all_pokes;
+			return [ { pk: 0 }, ...all_pokes ];
 		})
 	);
 };

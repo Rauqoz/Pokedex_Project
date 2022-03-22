@@ -24,9 +24,6 @@ const Login = () => {
 						} else {
 							window.localStorage.setItem('user_pk', JSON.stringify(data.data));
 							alert(`Login, Welcome ${data.data.db_name}!`);
-							alert(
-								'Hello! if is your first time in the app, please clic the button "Rauqoz-Dex" and add your first Pokemon (just skip this your first time) :D'
-							);
 						}
 						return data.flag;
 					});
