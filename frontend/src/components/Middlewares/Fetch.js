@@ -1,7 +1,8 @@
 const myHeaders = new Headers();
 myHeaders.append('Content-Type', 'application/json');
 
-const base_local = process.env.url_back || `http://localhost:4500`;
+// const base_local = `http://localhost:4500`;
+const base_local = process.env.url_back;
 const base_api = 'https://pokeapi.co/api/v2';
 
 export const get_dex_pokemons_ = async (range) => {
