@@ -109,8 +109,8 @@ const SingUp = () => {
 					</select>
 				</FormGroupS>
 				<FormTitleS>
-					<FormButtonS onClick={(e) => submit_(e, 'login')}>I have Account !</FormButtonS>
 					<FormButtonS onClick={(e) => submit_(e, 'sign')}>Sign Up</FormButtonS>
+					<FormButtonS onClick={(e) => submit_(e, 'login')}>I have Account !</FormButtonS>
 					<FormButtonS onClick={(e) => submit_(e, 'home')}>Home</FormButtonS>
 				</FormTitleS>
 			</FormS>

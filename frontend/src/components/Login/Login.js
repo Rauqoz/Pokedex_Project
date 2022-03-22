@@ -62,8 +62,8 @@ const Login = () => {
 					<input placeholder="Password" type="password" value={form_data.pass_f} onChange={setPass_} />
 				</FormGroupS>
 				<FormTitleS>
-					<FormButtonS onClick={(e) => submit_(e, 'sign')}>I need Account !</FormButtonS>
 					<FormButtonS onClick={(e) => submit_(e, 'login')}>Login</FormButtonS>
+					<FormButtonS onClick={(e) => submit_(e, 'sign')}>I need Account !</FormButtonS>
 					<FormButtonS onClick={(e) => submit_(e, 'home')}>Home</FormButtonS>
 				</FormTitleS>
 			</FormS>
