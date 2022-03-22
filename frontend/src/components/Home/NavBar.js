@@ -13,7 +13,7 @@ const NavBar = () => {
 	};
 
 	useEffect(() => {
-		if (window.sessionStorage.getItem('user_pk') === '') {
+		if (window.sessionStorage.getItem('user_pk') === null || window.sessionStorage.getItem('user_pk') === '') {
 			setCurrent_user('');
 		} else {
 			setCurrent_user(JSON.parse(window.sessionStorage.getItem('user_pk')));
