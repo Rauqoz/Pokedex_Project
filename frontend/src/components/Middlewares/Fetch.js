@@ -2,8 +2,8 @@ import axios from 'axios';
 const myHeaders = new Headers();
 myHeaders.append('Content-Type', 'application/json');
 
-const base_local = `http://localhost:4500`;
-// const base_local = 'https://pokedex-project-drab.vercel.app';
+// const base_local = `http://localhost:4500`;
+const base_local = 'https://pokedex-project-drab.vercel.app';
 const base_api = 'https://pokeapi.co/api/v2';
 
 export const get_dex_pokemons_ = async (range) => {
