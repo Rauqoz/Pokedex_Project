@@ -23,7 +23,7 @@ const NavBar = () => {
 	return (
 		<NavBarS>
 			<LiLeftS>
-				<ALinkS onClick={() => navigate('/')}>Rauqoz-Dex</ALinkS>
+				<ALinkS onClick={() => navigate('/')}>Home</ALinkS>
 			</LiLeftS>
 			{current_user.length !== 0 ? (
 				<div>
