@@ -5,7 +5,7 @@ https://pokedex-front-rauqoz.vercel.app/
 
 ### Architecture
 
-![d13](https://user-images.githubusercontent.com/48575507/159556078-ebb00eb6-65d7-49b3-b09e-f2e73a172f31.png)
+![d13](https://user-images.githubusercontent.com/48575507/159556930-eeb6ac14-108e-4f5c-a30f-95ec770e49b4.png)
 
 ### Page Login
 
