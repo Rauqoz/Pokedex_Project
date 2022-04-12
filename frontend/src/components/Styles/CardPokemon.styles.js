@@ -11,7 +11,8 @@ export const ContainerCardS = styled.div`
 	width: auto;
 	height: auto;
 	padding: 6px;
-
+	cursor: pointer;
+	
 	:hover& {
 		transition: 2s;
 	}
