@@ -8,15 +8,15 @@ const NavBar = () => {
 	const [ current_user, setCurrent_user ] = useState('');
 
 	const log_out_ = () => {
-		window.sessionStorage.setItem('user_pk', '');
+		window.localStorage.setItem('user_pk', '');
 		navigate('/login');
 	};
 
 	useEffect(() => {
-		if (window.sessionStorage.getItem('user_pk') === null || window.sessionStorage.getItem('user_pk') === '') {
+		if (window.localStorage.getItem('user_pk') === null || window.localStorage.getItem('user_pk') === '') {
 			setCurrent_user('');
 		} else {
-			setCurrent_user(JSON.parse(window.sessionStorage.getItem('user_pk')));
+			setCurrent_user(JSON.parse(window.localStorage.getItem('user_pk')));
 		}
 	}, []);
 

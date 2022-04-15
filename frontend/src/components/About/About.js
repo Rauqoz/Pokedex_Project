@@ -3,7 +3,6 @@ import { ButtonS, ContainerS } from '../Styles/PageGeneral.styles';
 
 const About = () => {
 	const open_ = () => {
-		window.open('https://github.com/Rauqoz');
 		window.open('https://github.com/Rauqoz/Pokedex_Project');
 	};
 
